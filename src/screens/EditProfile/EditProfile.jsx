@@ -115,7 +115,7 @@ const EditProfile = () => {
                       id="skillProficiency"
                       name='proficiency'
                       className="form-control"
-                      value="2"
+                      value={needSkill.proficiency}
                       onChange={handleNeedSkillChange}
                   >
                       <option value="0">Never Touched</option>
