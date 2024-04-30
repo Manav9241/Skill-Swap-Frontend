@@ -3,10 +3,10 @@ import { useState } from 'react'
 import { Route , Routes} from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
 import Login from './components/Login/Login';
-import Cards from './components/Cards/Cards';
 import ContactUs from './screens/ContactUs';
 import Search from './screens/Search';
 import Home from './screens/Home';
+import EditProfile from './screens/EditProfile';
 
 const user = {
   name: "First Last",
@@ -44,7 +44,7 @@ function App() {
       <Route exact path="/search" Component={Search}></Route>
       <Route exact path="/login" element={<Login type='login'/>}></Route>
       <Route exact path="/register" element={<Login type='register'/>}></Route>
-
+      <Route exact path="/edit-profile" Component={EditProfile}></Route>
 
     </Routes>
 

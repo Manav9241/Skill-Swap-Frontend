@@ -37,7 +37,7 @@ const Login = (props) => {
 
 	const handleSlideClick = (event) =>{
 		const element = event.target.id;
-		const container = document.getElementById('container');
+		const container = document.getElementById('login-container');
 		if (element === 'signUp') {
 			container.classList.add('right-panel-active')
 		} else if (element === 'signIn') {
@@ -47,57 +47,57 @@ const Login = (props) => {
 
   return (
     <div>
-<div className={`container ${props.type==='login'?'':"right-panel-active"}`} id="container" style={{marginTop: "3%"}}>
+<div className={`container_loginpage ${props.type==='login'?'':"right-panel-active"}`} id="login-container" style={{marginTop: "3%"}}>
 	<div className="form-container sign-up-container">
-		<form action="#">
-			<h1>Create Account</h1>
+		<form className='login_page_forms' action="#">
+			<h1 className='login_h1'>Create Account</h1>
 			<div className="social-container">
-				<a href="#" className="social"><i className="fab fa-facebook-f"></i></a>
-				<a href="#" className="social"><i className="fab fa-google-plus-g"></i></a>
-				<a href="#" className="social"><i className="fab fa-linkedin-in"></i></a>
+				<a href="#" className="social login_anchor"><i className="fab fa-facebook-f"></i></a>
+				<a href="#" className="social login_anchor"><i className="fab fa-google-plus-g"></i></a>
+				<a href="#" className="social login_anchor"><i className="fab fa-linkedin-in"></i></a>
 			</div>
-			<span>or use your email for registration</span>
-			<input type="text" placeholder="Name" name="name" value={registerForm.name} onChange={handleRegisterFormChange} />
-			<input type="email" placeholder="Email" name="email" value={registerForm.email} onChange={handleRegisterFormChange} />
-			<input type="password" placeholder="Password" name="password" value={registerForm.password} onChange={handleRegisterFormChange} />
-			<button type='submit' onClick={handleRegisterSubmit} >Sign Up</button>
+			<span className='login_span_element'>or use your email for registration</span>
+			<input className='login_input_element' type="text" placeholder="Name" name="name" value={registerForm.name} onChange={handleRegisterFormChange} />
+			<input className='login_input_element' type="email" placeholder="Email" name="email" value={registerForm.email} onChange={handleRegisterFormChange} />
+			<input className='login_input_element' type="password" placeholder="Password" name="password" value={registerForm.password} onChange={handleRegisterFormChange} />
+			<button className=' login_page_button' type='submit' onClick={handleRegisterSubmit} >Sign Up</button>
 		</form>
 	</div>
 	<div className="form-container sign-in-container">
-		<form action="#">
-			<h1>Sign in</h1>
+		<form className='login_page_forms' action="#">
+			<h1 className='login_h1'>Sign in</h1>
 			<div className="social-container">
-				<a href="#" className="social"><i className="fab fa-facebook-f"></i></a>
-				<a href="#" className="social"><i className="fab fa-google-plus-g"></i></a>
-				<a href="#" className="social"><i className="fab fa-linkedin-in"></i></a>
+				<a href="#" className="social login_anchor"><i className="fab fa-facebook-f"></i></a>
+				<a href="#" className="social login_anchor"><i className="fab fa-google-plus-g"></i></a>
+				<a href="#" className="social login_anchor"><i className="fab fa-linkedin-in"></i></a>
 			</div>
-			<span>or use your account</span>
-			<input type="email" placeholder="Email" name='email' value={loginForm.email} onChange={handleLoginFormChange} />
-			<input type="password" placeholder="Password" name='password' value={loginForm.password} onChange={handleLoginFormChange} />
-			<a href="#">Forgot your password?</a>
-			<button type='submit' onClick={handleLoginSubmit} >Sign In</button>
+			<span className='login_span_element'>or use your account</span>
+			<input className='login_input_element' type="email" placeholder="Email" name='email' value={loginForm.email} onChange={handleLoginFormChange} />
+			<input className='login_input_element' type="password" placeholder="Password" name='password' value={loginForm.password} onChange={handleLoginFormChange} />
+			<a className=' login_anchor' href="#">Forgot your password?</a>
+			<button className=' login_page_button' type='submit' onClick={handleLoginSubmit} >Sign In</button>
 		</form>
 	</div>
 	<div className="overlay-container">
 		<div className="overlay">
 			<div className="overlay-panel overlay-left">
-				<h1>Welcome Back!</h1>
-				<p>To keep connected with us please login with your personal info</p>
-				<button className="ghost" id="signIn" onClick={handleSlideClick}>Sign In</button>
+				<h1 className='login_h1'>Welcome Back!</h1>
+				<p className='login_paragraph'>To keep connected with us please login with your personal info</p>
+				<button className="ghost login_page_button" id="signIn" onClick={handleSlideClick}>Sign In</button>
 			</div>
 			<div className="overlay-panel overlay-right">
-				<h1>Hello, Friend!</h1>
-				<p>Enter your personal details and start journey with us</p>
-				<button className="ghost" id="signUp" onClick={handleSlideClick}>Sign Up</button>
+				<h1 className='login_h1'>Hello, Friend!</h1>
+				<p className='login_paragraph'>Enter your personal details and start journey with us</p>
+				<button className="ghost login_page_button" id="signUp" onClick={handleSlideClick}>Sign Up</button>
 			</div>
 		</div>
 	</div>
 </div>
 
-<footer>
-	<p>
-		Created with <i className="fa fa-heart"></i> by
-		<a target="_blank" href="/">  Manav, Ritik & Baijnath</a>
+<footer className='login_footer_element'>
+	<p className='login_paragraph footer_p_element'>
+		Created with <i className="fa fa-heart footer_i_element"></i> by
+		<a className='login_anchor footer_a_element' target="_blank" href="/">  Manav, Ritik & Baijnath</a>
 	</p>
 </footer>
     </div>
