@@ -1,15 +1,19 @@
 import React , {useState} from 'react'
-import Navbar from "../components/Navbar/Navbar";
-import CreateSkillBox from '../components/SkillCards/CreateSkillBox';
-import Skill from '../components/SkillCards/Skill';
+import Navbar from "../../components/Navbar/Navbar";
+import CreateSkillBox from '../../components/SkillCards/CreateSkillBox';
+import Skill from '../../components/SkillCards/Skill';
+import "./edit-profile.css";
+
 
 const user = {
   phoneNumber: '1234123412',
   bio: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga voluptas exercitationem quidem doloremque dignissimos sapiente amet quam doloribus corrupti alias nostrum molestias nemo facere incidunt, minima ab vero omnis expedita?',
-  serveSkill: [{
-    skill: 'c++',
-    proficiency: '2'
-  }],
+  serveSkill: [
+    {
+      skill: 'c++',
+      proficiency: '2'
+    },
+  ],
   needSkill:[{
     skill: 'js',
     proficiency: '1'
@@ -40,9 +44,12 @@ const EditProfile = () => {
   };
 
   function addServeSkill(newSkill) {
-    setServeSkill(prevSkill => {
-      return [...prevSkill, newSkill];
-    });
+    const { skill , proficiency } = newSkill;
+    if(skill && proficiency !== "proficiency") {
+      setServeSkill(prevSkill => {
+        return [...prevSkill, newSkill];
+      });
+    }
   }
 
   function deleteServeSkill(id) {
@@ -51,10 +58,6 @@ const EditProfile = () => {
         return index !== id;
       });
     });
-  }
-
-  const handleServeSkillChange = (e) => {
-    
   }
 
   const handleSubmit = (e) => {
@@ -72,34 +75,38 @@ const EditProfile = () => {
   };
 
   return (
-      <div>
+    <div>
         <Navbar />
+      <div className="edit-profile">
           <h1>Edit Profile</h1>
-          <form onSubmit={handleSubmit}>
-              <div>
+          <form id="editProfileForm" className="profile-form" onSubmit={handleSubmit}>
+              <div className="form-group">
                   <label htmlFor="phoneNumber">Phone Number:</label>
                   <input
                       type="text"
                       id="phoneNumber"
+                      className="form-control"
                       value={phoneNumber}
                       onChange={handlePhoneNumberChange}
                   />
               </div>
-              <div>
+              <div className="form-group">
                   <label htmlFor="bio">Bio:</label>
                   <textarea
                       id="bio"
+                      className="form-control"
                       value={bio}
                       onChange={handleBioChange}
                   />
               </div>
-              <div>
+              <div className="form-group">
                   <h2>Update Need Skill</h2>
                   <label htmlFor="needSkill">Skill Name:</label>
                   <input
                       type="text"
                       id="needSkill"
                       name='skill'
+                      className="form-control"
                       value={needSkill.skill}
                       onChange={handleNeedSkillChange}
                   />
@@ -107,6 +114,7 @@ const EditProfile = () => {
                   <select
                       id="skillProficiency"
                       name='proficiency'
+                      className="form-control"
                       value="2"
                       onChange={handleNeedSkillChange}
                   >
@@ -116,42 +124,28 @@ const EditProfile = () => {
                       <option value="3">Advanced</option>
                   </select>
               </div>
-              <div>
-                <h2>Update Serve Skills</h2>
-                <CreateSkillBox onAdd={addServeSkill} />
-                {serveSkill.map((skillItem , index) => {
-                  return (
-                    <Skill
-                      key={index}
-                      id={index}
-                      skill={skillItem.skill}
-                      proficiency={skillItem.proficiency}
-                      onDelete={deleteServeSkill}
-                    />
-                  )
-                })}
-                {/* <label htmlFor="serveSkill">Skill Name:</label>
-                <input
-                    type="text"
-                    id="serveSkill"
-                    value={skill.serve}
-                    onChange={handleskillChange}
-                />
-                <label htmlFor="skillProficiency">Proficiency:</label>
-                <select
-                    id="skillProficiency"
-                    value={skillProficiency}
-                    onChange={handleSkillProficiencyChange}
-                >
-                    <option value="">Select Proficiency</option>
-                    <option value="never-touched">Never Touched</option>
-                    <option value="beginner">Beginner</option>
-                    <option value="intermediate">Intermediate</option>
-                    <option value="advanced">Advanced</option>
-                </select> */}
+              <div className="form-group">
+                <h2>List of Serve Skills</h2>
+                <div className="create-skill-box">
+                  <CreateSkillBox onAdd={addServeSkill} />
+                </div>
+                <div className="serve-skill-list">
+                  {serveSkill.map((skillItem , index) => {
+                    return (
+                      <Skill
+                        key={index}
+                        id={index}
+                        skill={skillItem.skill}
+                        proficiency={skillItem.proficiency}
+                        onDelete={deleteServeSkill}
+                      />
+                    )
+                  })}
+                </div>
               </div>
-              <button type="submit">Save Changes</button>
+              <button type="submit" form="editProfileForm" className="submit-btn">Save Changes</button>
           </form>
+      </div>
       </div>
   );
 }

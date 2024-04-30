@@ -1,0 +1,59 @@
+
+.formBox-skill {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.formBox-skill input{
+    margin: 0;
+    font-family: inherit;
+    line-height: inherit;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.formBox-skill select {
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.formBox-skill button {
+  padding: 5px 10px;
+  border: 1px solid #007bff;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Skill Box Styles */
+.skill-box {
+  margin-right: 2%;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.skill-box h1 {
+  margin-bottom: 5px;
+}
+
+.skill-box p {
+  margin-bottom: 10px;
+}
+
+.skill-box button {
+  padding: 5px 10px;
+  border: 1px solid #dc3545;
+  border-radius: 5px;
+  background-color: #dc3545;
+  color: #fff;
+  cursor: pointer;
+  font-size: 0.8em;
+}

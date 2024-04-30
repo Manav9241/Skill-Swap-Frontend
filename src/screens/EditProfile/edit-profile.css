@@ -1,0 +1,53 @@
+/* General styles */
+.edit-profile {
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 1%;
+  max-width: min(800px, 70%);
+}
+
+.edit-profile .form-group {
+  margin-bottom: 20px;
+}
+
+/* Form control styles */
+.edit-profile .form-control {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+textarea.edit-profile .form-control {
+  height: 150px; /* Adjust height for textarea */
+}
+
+/* Create Skill Box styles */
+.edit-profile .create-skill-box {
+  margin-bottom: 10px;
+}
+
+.edit-profile .add-skill-btn {
+  padding: 5px 10px;
+  border: 1px solid #007bff;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Serve Skill List styles */
+.edit-profile .serve-skill-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.edit-profile .skill-card {
+  width: calc(33.edit-profile .33% - 20px);
+  margin-right: 20px;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}

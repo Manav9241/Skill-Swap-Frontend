@@ -1,4 +1,5 @@
 import React from "react";
+import "./skill-styles.css";
 
 function Skill(props) {
   function handleClick() {
@@ -13,8 +14,8 @@ function Skill(props) {
   ]
 
   return (
-    <div className="note">
-      <h1>{props.skill}</h1>
+    <div className="skill-box">
+      <h1>{props.skill.charAt(0).toUpperCase() + props.skill.slice(1)}</h1>
       <p>{Proficiency[parseInt(props.proficiency)]}</p>
       <button onClick={handleClick}>DELETE</button>
     </div>

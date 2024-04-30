@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./skill-styles.css";
 
 function CreateSkillBox(props) {
   const [newSkill, setNewSkill] = useState({
@@ -28,7 +29,7 @@ function CreateSkillBox(props) {
 
   return (
     <div>
-      <form>
+      <form id="createServeSkillBox" className="formBox-skill">
         <input
           name="skill"
           onChange={handleChange}
@@ -38,15 +39,16 @@ function CreateSkillBox(props) {
         <select
           id="skillProficiency"
           name='proficiency'
-          value={`${newSkill.proficiency}`}
+          value={`${newSkill.proficiency || 'proficiency'}`}
           onChange={handleChange}
       >
+          <option value="selected">Proficiency</option>
           <option value="0">Never Touched</option>
           <option value="1">Beginner</option>
           <option value="2">Intermediate</option>
           <option value="3">Advanced</option>
         </select>
-        <button onClick={submitNewSkill}>Add</button>
+        <button form="createServeSkillBox" onClick={submitNewSkill}>Add</button>
       </form>
     </div>
   );

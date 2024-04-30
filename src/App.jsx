@@ -6,7 +6,7 @@ import Login from './components/Login/Login';
 import ContactUs from './screens/ContactUs';
 import Search from './screens/Search';
 import Home from './screens/Home';
-import EditProfile from './screens/EditProfile';
+import EditProfile from './screens/EditProfile/EditProfile';
 
 const user = {
   name: "First Last",
