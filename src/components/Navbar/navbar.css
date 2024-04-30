@@ -16,7 +16,6 @@
     border: none; /* Remove border from toggler button */
 }
 
-
 .navbar-nav .nav-item {
     margin: auto; /* Adjust padding for nav links */
 }
@@ -29,6 +28,7 @@
     border: none; /* Remove border from dropdown menu */
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1); /* Add shadow to dropdown menu */
 }
-.dropdown-menu{
+
+.dropdown-menu {
     right: 50%;
 }

@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import './login.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebookF, faGooglePlusG, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
+import Navbar from '../Navbar/Navbar';
 
 const Login = (props) => {
 
@@ -47,14 +50,21 @@ const Login = (props) => {
 
   return (
     <div>
+		<Navbar />
 <div className={`container_loginpage ${props.type==='login'?'':"right-panel-active"}`} id="login-container" style={{marginTop: "3%"}}>
 	<div className="form-container sign-up-container">
 		<form className='login_page_forms' action="#">
 			<h1 className='login_h1'>Create Account</h1>
 			<div className="social-container">
-				<a href="#" className="social login_anchor"><i className="fab fa-facebook-f"></i></a>
-				<a href="#" className="social login_anchor"><i className="fab fa-google-plus-g"></i></a>
-				<a href="#" className="social login_anchor"><i className="fab fa-linkedin-in"></i></a>
+			<a href="#" className="social login_anchor">
+				<FontAwesomeIcon icon={faFacebookF} />
+				</a>
+				<a href="#" className="social login_anchor">
+				<FontAwesomeIcon icon={faGooglePlusG} />
+				</a>
+				<a href="#" className="social login_anchor">
+				<FontAwesomeIcon icon={faLinkedinIn} />
+				</a>
 			</div>
 			<span className='login_span_element'>or use your email for registration</span>
 			<input className='login_input_element' type="text" placeholder="Name" name="name" value={registerForm.name} onChange={handleRegisterFormChange} />
@@ -67,9 +77,15 @@ const Login = (props) => {
 		<form className='login_page_forms' action="#">
 			<h1 className='login_h1'>Sign in</h1>
 			<div className="social-container">
-				<a href="#" className="social login_anchor"><i className="fab fa-facebook-f"></i></a>
-				<a href="#" className="social login_anchor"><i className="fab fa-google-plus-g"></i></a>
-				<a href="#" className="social login_anchor"><i className="fab fa-linkedin-in"></i></a>
+			<a href="#" className="social login_anchor">
+				<FontAwesomeIcon icon={faFacebookF} />
+				</a>
+				<a href="#" className="social login_anchor">
+				<FontAwesomeIcon icon={faGooglePlusG} />
+				</a>
+				<a href="#" className="social login_anchor">
+				<FontAwesomeIcon icon={faLinkedinIn} />
+				</a>
 			</div>
 			<span className='login_span_element'>or use your account</span>
 			<input className='login_input_element' type="email" placeholder="Email" name='email' value={loginForm.email} onChange={handleLoginFormChange} />
