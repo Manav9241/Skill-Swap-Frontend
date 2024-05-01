@@ -18,7 +18,7 @@ const Navbar = () => {
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
                         </svg>
                     </button>
-                    <div className="hidden lg:flex space-x-4">
+                    <div className="hidden lg:flex space-x-4" style={{}}>
                         <ul className="flex space-x-4">
                             <li>
                                 <Link className="hover:text-gray-700" to="/">Home</Link>
@@ -28,6 +28,9 @@ const Navbar = () => {
                             </li>
                             <li>
                                 <Link className="hover:text-gray-700" to="/contact">Contact Us</Link>
+                            </li>
+                            <li>
+                                <Link className="hover:text-gray-700" to="/chats">Chat</Link>
                             </li>
                             <li>
                                 <Link className="hover:text-gray-700" to="/blog">Blog</Link>

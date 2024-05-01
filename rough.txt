@@ -1,0 +1,8 @@
+ npm i react-notification-badge  @reduxjs/toolkit @chakra-ui/react
+// @emoji-mart/data @emoji-mart/react
+// @emotion/react
+// @emotion/styled
+// @mui/material
+// @reduxjs/toolkit
+// axios
+dotenv emoji-mart framer-motion gapi-script react-google-login react-icons react-loading-skeleton react-notification-badge react-redux react-router react-router-dom react-scrollable-feed react-toastify react-transition-group socket.io-client
