@@ -175,7 +175,7 @@ function Login() {
         const response = await postAPIcalls(mid, id, formData);
         if (response.status === 200) {
           console.log(response.data);
-          localStorage.setItem("User", response.data);
+          localStorage.setItem("User", JSON.stringify(response.data));
           toast.success("Succesfully Login!");
           setIsLoading(false);
           pageRoute("/");

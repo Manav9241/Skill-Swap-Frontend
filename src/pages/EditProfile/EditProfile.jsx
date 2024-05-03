@@ -3,6 +3,8 @@ import Navbar from "../../components/Navbar/Navbar";
 import CreateSkillBox from '../../components/SkillCards/CreateSkillBox';
 import Skill from '../../components/SkillCards/Skill';
 import "./edit-profile.css";
+import { postAPIcalls } from '../../utils/apiCalls';
+import { useNavigate } from 'react-router';
 
 
 const user = {
@@ -21,12 +23,13 @@ const user = {
 }
 
 const EditProfile = () => {
-  const [phoneNumber, setPhoneNumber] = useState(user.phoneNumber);
-  const [bio, setBio] = useState(user.bio);
-  const [needSkill, setNeedSkill] = useState(user.needSkill[0]);
-  const [serveSkill, setServeSkill] = useState([...user.serveSkill]);
+  const pageRoute = useNavigate() ;
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [bio, setBio] = useState("");
+  const [needSkill, setNeedSkill] = useState([]);
+  const [serveSkill, setServeSkill] = useState([]);
   
-  const handlePhoneNumberChange = (e) => {
+  const handlePhoneNumberChange =  (e) => {
       setPhoneNumber(e.target.value);
   };
 
@@ -60,17 +63,28 @@ const EditProfile = () => {
     });
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
       e.preventDefault();
       // Perform update logic here, such as calling an API to update the user's profile
       const finalUser = {
         phoneNumber: phoneNumber,
         bio: bio,
-        serveSkill: serveSkill,
-        needSkill: [needSkill]
+        skillServes: serveSkill,
+        skillNeed: [needSkill]
       }
-
-      console.log(finalUser);
+      try {
+        const userId = JSON.parse(localStorage.getItem("User")).id ;
+        const mid = "operations/user/profileUpdate/" ;
+        const id = userId ;
+        const response = await postAPIcalls(mid, id, finalUser) ;
+        if(response.status === 200){
+          pageRoute('/') ;
+          //matching page showing
+        }
+      } catch (error) {
+        //handle not done
+      }
+      // console.log(finalUser);
       // You can replace the console logs with actual update logic
   };
 
