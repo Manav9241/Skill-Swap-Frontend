@@ -7,6 +7,8 @@ import Profile from "./components/Profile/Profile";
 import Search from "./pages/Search";
 import ContactUs from './pages/ContactUs'
 import Login from './components/Login/Login'
+import Matching from './components/Matching/Matching'
+import GroupMatching from './pages/GroupMatching'
 
 import Regsiter from "./components/Register/Register";
 
@@ -26,6 +28,8 @@ export default function App() {
         <Route path="/blog" element={<Blog />} />
         <Route path="/about" element={<About />} />
         <Route path="/profile" element={<Profile/>}/>
+        <Route path="/matching" element={<Matching/>}/>
+        <Route path="/group" element={<GroupMatching/>}/>
         {/* <Route exact path="/login" element={<Login type='login'/>}></Route>
         <Route exact path="/register" element={<Login type='register'/>}></Route> */}
 

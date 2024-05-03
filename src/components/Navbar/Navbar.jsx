@@ -1,5 +1,5 @@
 import React ,{useState}from 'react';
-import { Link } from 'react-router-dom'; // Import Link from React Router
+import { Link, useNavigate } from 'react-router-dom'; // Import Link from React Router
 import './navbar.css'; // Import CSS file for styling
 
 const Navbar = () => {
@@ -8,6 +8,11 @@ const Navbar = () => {
     const toggleDropdown = () => {
         setIsDropdownOpen(!isDropdownOpen);
     };
+    const pageRoute = useNavigate() ;
+    const handleLogout = async() =>{
+        localStorage.removeItem("User") ;
+        pageRoute('/login') ;
+    } ;
     return (
         <nav className="bg-gray-100 shadow-md" style={{ paddingLeft: '5%', paddingRight: '5%' }}>
             <div className="container mx-auto">
@@ -23,8 +28,12 @@ const Navbar = () => {
                             <li>
                                 <Link className="hover:text-gray-700" to="/">Home</Link>
                             </li>
-                            <li>
+                            {/* <li>
                                 <Link className="hover:text-gray-700" to="/about">About</Link>
+                            </li>
+                             */}
+                             <li>
+                                <Link className="hover:text-gray-700" to="/matching">Matching</Link>
                             </li>
                             <li>
                                 <Link className="hover:text-gray-700" to="/contact">Contact Us</Link>
@@ -52,8 +61,9 @@ const Navbar = () => {
                                 </button>
                                 <ul className={`dropdown-menu absolute text-gray-700 bg-white shadow-lg rounded-md mt-2 py-1 ${isDropdownOpen ? 'block' : 'hidden'}`} aria-labelledby="userDropdown" style={{ zIndex: 9999 }}>
                                     <li><Link className="dropdown-item block px-4 py-2 hover:bg-gray-100" to="/dashboard">Dashboard</Link></li>
+                                    <li><Link className="dropdown-item block px-4 py-2 hover:bg-gray-100" to="/group">My Groups</Link></li>
                                     <li><Link className="dropdown-item block px-4 py-2 hover:bg-gray-100" to="/edit-profile">Edit Profile</Link></li>
-                                    <li><Link className="dropdown-item block px-4 py-2 hover:bg-gray-100" to="/logout">Log Out</Link></li>
+                                    <li><div className="dropdown-item block px-4 py-2 hover:bg-gray-100" onClick={handleLogout}>Log Out</div></li>
                                 </ul>
                             </li>
 
