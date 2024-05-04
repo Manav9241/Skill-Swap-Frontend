@@ -46,7 +46,7 @@ function Matching() {
             const id = groupId + "/" + userId ;
             const response = await getAPIcalls(mid, id) ;
             if(response.status === 200){
-                  localStorage.setItem("groupDetails", JSON.stringify(response.data)) ;
+                  // localStorage.setItem("groupDetails", JSON.stringify(response.data)) ;
                   pageRoute('/group') ;
             }
             
