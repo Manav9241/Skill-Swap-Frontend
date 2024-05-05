@@ -43,18 +43,20 @@ export default function YourComponent() {
       <div className="flex justify-center mt-10">
         <div className="w-96 p-4 bg-gray-100 rounded-lg shadow-md mb-4">
           <div className="border-b mb-4 pb-4">
-            <h1 className="text-xl font-bold mb-2">Ritik</h1>
+            <h1 className="text-xl font-bold mb-2">Group</h1>
             <div>
             {items != null ? 
             ( 
                   
-                  items.result.map(item => (
-                  <div key={item.name} className="flex items-center mb-2">
+                  items.result.map(it => (
+                  it.map(item =>(
+                    <div key={item.name} className="flex items-center mb-2">
                     <span>{item.name}</span>
                     <div
                       className={`w-4 h-4 ml-2 rounded-full ${item.checked ? 'bg-green-500' : 'bg-red-500'}`}
                     ></div>
                   </div>
+                  ))
                 ))
             )
             
