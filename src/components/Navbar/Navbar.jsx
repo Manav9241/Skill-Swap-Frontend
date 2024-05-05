@@ -61,8 +61,9 @@ const Navbar = () => {
                                 </button>
                                 <ul className={`dropdown-menu absolute text-gray-700 bg-white shadow-lg rounded-md mt-2 py-1 ${isDropdownOpen ? 'block' : 'hidden'}`} aria-labelledby="userDropdown" style={{ zIndex: 9999 }}>
                                     <li><Link className="dropdown-item block px-4 py-2 hover:bg-gray-100" to="/dashboard">Dashboard</Link></li>
-                                    <li><Link className="dropdown-item block px-4 py-2 hover:bg-gray-100" to="/group">My Groups</Link></li>
                                     <li><Link className="dropdown-item block px-4 py-2 hover:bg-gray-100" to="/edit-profile">Edit Profile</Link></li>
+                                    <li><Link className="dropdown-item block px-4 py-2 hover:bg-gray-100" to="/group">My Groups</Link></li>
+                                    <li><Link className="dropdown-item block px-4 py-2 hover:bg-gray-100" to="/schedules">Schedules</Link></li>
                                     <li><div className="dropdown-item block px-4 py-2 hover:bg-gray-100" onClick={handleLogout}>Log Out</div></li>
                                 </ul>
                             </li>

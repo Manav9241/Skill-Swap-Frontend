@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Navbar from '../Navbar/Navbar';
 import { postAPIcalls } from '../../utils/apiCalls';
+import { useNavigate } from 'react-router';
 
 const weekSchedule = [
   [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
@@ -28,7 +29,7 @@ const Schedule = () => {
     updatedSchedule[dayIndex][hourIndex] = !updatedSchedule[dayIndex][hourIndex];
     setWeekSchedule(updatedSchedule);
   };
-
+  const pageRoute = useNavigate() ;
   const handleSubmit = (e) => {
     e.preventDefault();
     // Perform update logic here, such as calling an API to update the user's profile
@@ -46,10 +47,11 @@ const Schedule = () => {
       const mid = "schedulingAlgo/user/schedule/" ;
       const response = postAPIcalls(mid, id, userSchedule) ;
       if(response.status === 200){
-            console.log(response.data);
+            // console.log(response.data);
+            pageRoute('/schedules') ;
       }
     } catch (error) {
-      
+      alert("You have already added or other have not added!!") ;
     }
     // console.log(userSchedule);
     // You can replace the console logs with actual update logic
