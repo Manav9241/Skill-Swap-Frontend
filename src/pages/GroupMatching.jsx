@@ -1,6 +1,7 @@
 import React, { useState, useEffect} from 'react';
 import Navbar from '../components/Navbar/Navbar';
 import { getAPIcalls } from '../utils/apiCalls';
+import { useNavigate } from 'react-router';
 
 
 
@@ -8,10 +9,12 @@ export default function YourComponent() {
   // State variables to manage the list of items and their checked status for each group
   const [message, setmessage] = useState(null)
   const [items, setItems] = useState(null);
+  const pageRoute = useNavigate() ;
 
   const handleSchedule = async(flag)=>{
     if(flag){
       // go to schedule fill page
+      pageRoute('/schedule') ;
     }else{
       // return showing not all accepted
       setmessage("All are not accepted so please wait for them!!") ;
@@ -23,6 +26,7 @@ export default function YourComponent() {
       const id = JSON.parse(localStorage.getItem("User")).id ;
       const response = await getAPIcalls(mid, id) ;
       if(response.status === 200) {
+        console.log(response.data);
         setItems(response.data) ;
       }
   }

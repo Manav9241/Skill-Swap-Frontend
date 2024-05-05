@@ -3,9 +3,8 @@ import Navbar from "../../components/Navbar/Navbar";
 import CreateSkillBox from '../../components/SkillCards/CreateSkillBox';
 import Skill from '../../components/SkillCards/Skill';
 import "./edit-profile.css";
-import { postAPIcalls } from '../../utils/apiCalls';
 import { useNavigate } from 'react-router';
-
+import { postAPIcalls } from '../../utils/apiCalls';
 
 const user = {
   phoneNumber: '1234123412',
@@ -13,23 +12,22 @@ const user = {
   serveSkill: [
     {
       skill: 'c++',
-      proficiency: '2'
+      level: 2
     },
   ],
   needSkill:[{
     skill: 'js',
-    proficiency: '1'
+    level: 1
   }],
 }
 
 const EditProfile = () => {
-  const pageRoute = useNavigate() ;
-  const [phoneNumber, setPhoneNumber] = useState("");
-  const [bio, setBio] = useState("");
-  const [needSkill, setNeedSkill] = useState([]);
-  const [serveSkill, setServeSkill] = useState([]);
+  const [phoneNumber, setPhoneNumber] = useState(user.phoneNumber);
+  const [bio, setBio] = useState(user.bio);
+  const [needSkill, setNeedSkill] = useState(user.needSkill[0]);
+  const [serveSkill, setServeSkill] = useState([...user.serveSkill]);
   
-  const handlePhoneNumberChange =  (e) => {
+  const handlePhoneNumberChange = (e) => {
       setPhoneNumber(e.target.value);
   };
 
@@ -39,7 +37,8 @@ const EditProfile = () => {
 
   const handleNeedSkillChange = (e) => {
     const {name , value} = e.target;
-    const updateValue = (name==='skill'? value : e.target.options.selectedIndex.toString())
+    const updateValue = (name==='skill'? value : e.target.options.selectedIndex)
+    console.log(name , updateValue , typeof updateValue);
     setNeedSkill({
       ...needSkill, 
       [name]: updateValue
@@ -47,8 +46,8 @@ const EditProfile = () => {
   };
 
   function addServeSkill(newSkill) {
-    const { skill , proficiency } = newSkill;
-    if(skill && proficiency !== "proficiency") {
+    const { skill , level } = newSkill;
+    if(skill && level !== -1) {
       setServeSkill(prevSkill => {
         return [...prevSkill, newSkill];
       });
@@ -62,8 +61,8 @@ const EditProfile = () => {
       });
     });
   }
-
-  const handleSubmit = async (e) => {
+  const pageRoute = useNavigate() ;
+  const handleSubmit = async(e) => {
       e.preventDefault();
       // Perform update logic here, such as calling an API to update the user's profile
       const finalUser = {
@@ -84,7 +83,8 @@ const EditProfile = () => {
       } catch (error) {
         //handle not done
       }
-      // console.log(finalUser);
+
+      console.log(finalUser);
       // You can replace the console logs with actual update logic
   };
 
@@ -124,18 +124,18 @@ const EditProfile = () => {
                       value={needSkill.skill}
                       onChange={handleNeedSkillChange}
                   />
-                  <label htmlFor="skillProficiency">Proficiency:</label>
+                  <label htmlFor="skilllevel">level:</label>
                   <select
-                      id="skillProficiency"
-                      name='proficiency'
+                      id="skilllevel"
+                      name='level'
                       className="form-control"
-                      value={needSkill.proficiency}
+                      value={needSkill.level}
                       onChange={handleNeedSkillChange}
                   >
-                      <option value="0">Never Touched</option>
-                      <option value="1">Beginner</option>
-                      <option value="2">Intermediate</option>
-                      <option value="3">Advanced</option>
+                      <option value={0}>Never Touched</option>
+                      <option value={1}>Beginner</option>
+                      <option value={2}>Intermediate</option>
+                      <option value={3}>Advanced</option>
                   </select>
               </div>
               <div className="form-group">
@@ -150,7 +150,7 @@ const EditProfile = () => {
                         key={index}
                         id={index}
                         skill={skillItem.skill}
-                        proficiency={skillItem.proficiency}
+                        level={skillItem.level}
                         onDelete={deleteServeSkill}
                       />
                     )

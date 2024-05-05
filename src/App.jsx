@@ -14,6 +14,7 @@ import Regsiter from "./components/Register/Register";
 
 import EditProfile from './pages/EditProfile/EditProfile'
 import HomeChat from "./pages/HomeChat";
+import Schedule from "./components/Schedule/Schedule";
 
 
 
@@ -30,6 +31,7 @@ export default function App() {
         <Route path="/profile" element={<Profile/>}/>
         <Route path="/matching" element={<Matching/>}/>
         <Route path="/group" element={<GroupMatching/>}/>
+        <Route path="/schedule" Component={Schedule}/>
         {/* <Route exact path="/login" element={<Login type='login'/>}></Route>
         <Route exact path="/register" element={<Login type='register'/>}></Route> */}
 

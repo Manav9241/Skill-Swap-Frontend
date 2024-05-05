@@ -11,7 +11,6 @@ export const getAPIcalls = async (mid, id) =>{
   export const postAPIcalls = async (mid, id, credentials) =>{
     const baseURL = import.meta.env.VITE_API_URL
     const url = baseURL+mid+id ;
-    
     const response = await axios.post(url, credentials) ;
     return response ;
   }
